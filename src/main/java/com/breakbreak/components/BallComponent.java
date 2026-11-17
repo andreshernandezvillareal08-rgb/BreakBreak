@@ -34,6 +34,11 @@ public class BallComponent extends GameComponent {
         }
     }
 
+    // Método seguro renombrado para evitar conflictos con AWT
+    public void moverPelota(int dx, int dy) {
+        setLocation(getX() + dx, getY() + dy);
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -44,7 +49,6 @@ public class BallComponent extends GameComponent {
         );
 
         if (ballImage != null && ballImage.getImage() != null) {
-            // Dibuja únicamente tu imagen sin bordes adicionales
             g2.drawImage(ballImage.getImage(), 0, 0, getWidth(), getHeight(), this);
         }
 
